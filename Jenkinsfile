@@ -8,19 +8,27 @@ pipeline {
     stages {
 
         stage('Compile') {
-            sh 'echo Compiling...'
+            steps {
+                sh 'echo Compiling...'
+            }
         }
 
         stage('Test') {
-            sh 'echo Testing...'
+            steps {
+                sh 'echo Testing...'
+            }
         }
 
         stage('Package') {
-            sh 'echo Packaging...'
+            steps {
+                sh 'echo Packaging...'
+            }
         }
 
         stage('Deploy') {
-            sh 'echo Deploying...'
+            steps {
+                sh 'echo Deploying...'
+            }
         }
 
     }
