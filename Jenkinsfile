@@ -8,9 +8,9 @@ pipeline {
 
     stages {
 
-        stage('Compile') {
+        stage('Initialize') {
             steps {
-                sh './gradlew compile'
+                sh './gradlew clean'
             }
         }
 
