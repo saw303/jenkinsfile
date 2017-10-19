@@ -10,25 +10,48 @@ pipeline {
 
         stage('Compile') {
             steps {
-                sh './gradlew clean'
+                sh './gradlew compile'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'echo Testing...'
+                sh './gradlew test'
             }
         }
 
         stage('Package') {
             steps {
-                sh 'echo Packaging...'
+                sh './gradlew build'
             }
         }
 
         stage('Deploy') {
             steps {
                 sh 'echo Deploying...'
+            }
+        }
+
+        stage('Online tests') {
+            parallel {
+                stage('Selenium') {
+                    steps {
+                        sh "echo Hello"
+                        sleep time: 7, unit: 'SECONDS'
+                    }
+                }
+                stage('Stress Tests') {
+                    steps {
+                        sh "echo Hello"
+                        sleep time: 3, unit: 'SECONDS'
+                    }
+                }
+                stage('Extremely slow test') {
+                    steps {
+                        sh "echo Hello"
+                        sleep time: 10, unit: 'SECONDS'
+                    }
+                }
             }
         }
 
