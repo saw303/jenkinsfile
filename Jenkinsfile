@@ -10,7 +10,7 @@ pipeline {
 
         stage('Compile') {
             steps {
-                sh 'echo Compiling...'
+                sh './gradlew clean'
             }
         }
 
